@@ -11,10 +11,10 @@ jobs:
         with:
           command: help
       - name: Build
-        uses: SAP/project-piper-action@master
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          command: mtaBuild
-      - name: cTMSupload
-        uses: SAP/project-piper-action@master
-        with:
-          command: tmsUpload
+          node-version: 16.x
+          cache: 'npm'
+          registry-url: https://npm.pkg.github.com/
+      - run: mbt build
