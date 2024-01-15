@@ -2,10 +2,10 @@ name: learn-github-actions
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  build:
+  units:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Build
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
