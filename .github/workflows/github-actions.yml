@@ -5,4 +5,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: mbt build
+      - name: Build
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+          cache: 'npm'
+          registry-url: https://npm.pkg.github.com/
+      - run: nmp make -f Makefile_20240115141228.mta p=cf mtar= strict=true mode=
